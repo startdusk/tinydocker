@@ -23,7 +23,7 @@ func run() {
 	cmd := exec.Command(os.Args[2])
 	cmd.SysProcAttr = &syscall.SysProcAttr{
         // 这里是使用UTS隔离
-        // 注意: 2022/08/24 Mac M1 尚不支持此特性
+        // 注意: 只在linux环境下支持该特性
 		Cloneflags: syscall.CLONE_NEWUTS,
 	}
 	cmd.Stdin = os.Stdin
